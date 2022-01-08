@@ -1,21 +1,22 @@
 package input;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ChildUpdate {
 
     private int id;
-    private double newNiceScore;
-    private List<String> newGiftsPreferences;
+    private Double niceScore;
+    private List<String> giftsPreferences;
 
     public ChildUpdate() {
-
+        giftsPreferences = new ArrayList<>();
     }
 
-    public ChildUpdate(int id, double newNiceScore, List<String> newGiftsPreferences) {
+    public ChildUpdate(int id, Double newNiceScore, List<String> giftsPreferences) {
         this.id = id;
-        this.newNiceScore = newNiceScore;
-        this.newGiftsPreferences = newGiftsPreferences;
+        this.niceScore = newNiceScore;
+        this.giftsPreferences = giftsPreferences;
     }
 
     public int getId() {
@@ -26,19 +27,19 @@ public class ChildUpdate {
         this.id = id;
     }
 
-    public double getNewNiceScore() {
-        return newNiceScore;
+    public Double getNiceScore() {
+        return niceScore;
     }
 
-    public void setNewNiceScore(double newNiceScore) {
-        this.newNiceScore = newNiceScore;
+    public void setNiceScore(Double niceScore) {
+        this.niceScore = niceScore;
     }
 
-    public List<String> getNewGiftsPreferences() {
-        return newGiftsPreferences;
+    public List<String> getGiftsPreferences() {
+        return giftsPreferences;
     }
 
-    public void setNewGiftsPreferences(List<String> newGiftsPreferences) {
-        this.newGiftsPreferences = newGiftsPreferences;
+    public void setGiftsPreferences(List<String> giftsPreferences) {
+        this.giftsPreferences = giftsPreferences;
     }
 }

@@ -2,6 +2,7 @@ package input;
 
 import enums.Cities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Child {
@@ -15,7 +16,7 @@ public class Child {
     private List<String> giftsPreferences;
 
     public Child() {
-
+        giftsPreferences = new ArrayList<>();
     }
 
     public Child(int id, String lastName, String firstName, int age, String city, double niceScore, List<String> giftsPreferences) {

@@ -14,11 +14,8 @@ public class Round0 {
 
     public static void execute(Input input, Output output) {
         ChildOutputList childOutputList = new ChildOutputList();
+        input.getInitialData().getChildren().removeIf(child -> child.getAge() > 18);
         for (Child child : input.getInitialData().getChildren()) {
-            if (child.getAge() > 18) {
-                input.getInitialData().getChildren().remove(child);
-                break;
-            }
 
             double allocatedBudget = BudgetCalculator.round0(child, input);
 
@@ -27,6 +24,8 @@ public class Round0 {
             ChosenGift.searchChosenGift(child, input, receivedGifts, allocatedBudget);
 
             ChildOutput childOutput = new ChildOutput(child, allocatedBudget, receivedGifts);
+            if (child.getAge() < 5)
+                childOutput.setAverageScore(10);
             childOutputList.getChildren().add(childOutput);
         }
 

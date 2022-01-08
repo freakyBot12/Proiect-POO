@@ -1,5 +1,6 @@
 package input;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class InitialData {
@@ -8,7 +9,8 @@ public class InitialData {
     private List<Gift> santaGiftsList;
 
     public InitialData() {
-
+        children = new ArrayList<>();
+        santaGiftsList = new ArrayList<>();
     }
 
     public InitialData(List<Child> children, List<Gift> santaGiftsList) {

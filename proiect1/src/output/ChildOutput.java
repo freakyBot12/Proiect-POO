@@ -1,9 +1,11 @@
 package output;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import enums.Cities;
 import input.Child;
 import input.Gift;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -37,15 +39,15 @@ public class ChildOutput {
         this.receivedGifts = receivedGifts;
     }
 
-    public ChildOutput(int id, String lastName, String firstName, String city, int age, List<String> giftsPreferences, double averageScore, List<Double> niceScoreHistory, double assignedBudget, List<Gift> receivedGifts) {
-        this.id = id;
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.city = city;
-        this.age = age;
-        this.giftsPreferences = giftsPreferences;
+    public ChildOutput(Child child, double averageScore, List<Double> niceScoreHistory, double assignedBudget, List<Gift> receivedGifts) {
+        this.id = child.getId();
+        this.lastName = child.getLastName();
+        this.firstName = child.getFirstName();
+        this.city = child.getCity();
+        this.age = child.getAge();
+        this.giftsPreferences = child.getGiftsPreferences();
         this.averageScore = averageScore;
-        this.niceScoreHistory = niceScoreHistory;
+        this.niceScoreHistory = new ArrayList<>(niceScoreHistory);
         this.assignedBudget = assignedBudget;
         this.receivedGifts = receivedGifts;
     }
