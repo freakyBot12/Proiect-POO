@@ -1,0 +1,71 @@
+Selea Tudor Octavian - 322CA - Proiect POO 2022 - Etapa 1
+
+Input:
+	- contine datele initiale ale problemei (datele rundei 0) si schimbarile anuale
+	  pentru ceilalti numberOfYears ani
+	- celelalte clase continute de Input au fost realizate pentru a facilita citirea
+	  datelor din testele de intrare (care au formatul json) folosind biblioteca
+	  Jackson
+
+Output:
+	- clasa de tip Singleton (din aceasta cauza, in clasa Main, la finalul fiecarei
+	  iteratii sunt sterse toate datele instantei de tip Output. Daca nu ar fi sterse,
+	  datele de iesire de la noua iteratie ar fi alterate de datele de iesire de la 
+	  vechea iteratie, lucru care ar duce la generarea unui test de iesire eronat)
+	- clasele continute de Output au fost realizate pentru a facilita scrierea datelor
+	  din Output in fisiere cu format json
+
+ChildOutput:
+	- al doilea constructor este folosit in runda 0, in care nu avem nevoie sa retinem
+	  scorurile de cumintenie ale copiilor in Hashmap, si in care averageScore-ul este
+	  identic cu scorul de cumintenie initial (mai putin in cazul copiilor din categoria
+	  Baby, unde averageScore-ul este 10 oricare ar fi scorul de cumintenie initial
+
+GiveGifts:
+	- aceasta clasa initiaza simularea rundei 0 si a celorlalte numberOfYears runde.
+	- tot in aceasta clasa este creat un LinkedHashMap, care va stoca toti copiii din
+	  lista Mosului si toate scorurile de cumintenie acordate acestora in cei
+	  numberOfYears + 1 ani
+	- motivul pentru care LinkedHashMap-ul de mai sus a fost realizat dupa runda 0 este 
+	  ca, pentru runda 0, nu a fost nevoie decat de scorurile de cumintenie initiale ale
+	  copiilor, care se gasesc in datele de intrare  
+
+Round0:
+	- este simulata runda initiala
+	- este creata o lista care va contine copiii din lista Mosului, averageScore-ul lor,
+	  lista de scoruri de cumintenie si o lista cu cadourile primite
+	- se aloca un buget pentru fiecare copil
+	- se adauga cadouri, in functie de buget si preferintele copilului, in lista de cadouri
+	  primite
+	- se adauga copiii in lista precizata la inceputul descrierii clasei Round0
+	- aceasta lista se adauga in Output
+
+NextRounds: 
+	- sunt simulate urmatoarele runde
+	- este crescuta varsta copiilor ramasi in lista Mosului cu 1
+	- sunt eliminati din lista Mosului copiii care au peste 18 ani
+	- se fac update-uri pentru bugetul Mosului, lista de scoruri de
+	  cumintenie si lista de preferinte ale fiecarui copil
+	- se adauga noi copii in lista de copii a Mosului (din acestia, sunt eliminati cei
+	  care au peste 18 ani)
+	- se repeta pasii descrisi la Round0
+
+ChosenGift:
+	- sunt alese cadourile care vor fi adaugate in lista de cadouri primite a fiecarui
+	  copil
+
+UpdateChild:
+	- contine functiile care realizeaza update-urile pentru lista de scoruri de cumintenie
+	  si lista de preferinte a fiecarui copil
+
+BudgetCalculator:
+	- contine functiile care determina bugetul alocat fiecarui copil in functie de varsta
+	- pentru prima runda este folosita o functie separata de determinare a bugetului fata
+	  de celelalte runde
+	- in cazul celorlalte runde, a fost folosit design pattern-ul Strategy pentru calcularea
+	  averageScore-ului fiecarui copil
+
+pachetul strategy:
+	- contine implementarea design pattern-ului Strategy, folosit pentru calcularea
+	  averageScore-ului pentru fiecare copil
+
