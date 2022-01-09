@@ -11,75 +11,44 @@ import output.Output;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
-public class NextRounds {
-    public static void increaseAge(Input input) {
-        for (Child child : input.getInitialData().getChildren()) {
-            int age = child.getAge();
-            age++;
-            child.setAge(age);
-        }
+public final class NextRounds {
+    private NextRounds() {
+
     }
-
-    public static void checkForYoungAdults(Input input) {
-        input.getInitialData().getChildren().removeIf(child -> child.getAge() > 18);
-    }
-
-    public static void execute(Input input, Output output, Map<Integer, List<Double>> niceScoreHistoryMap) {
+    /** simularea celor numberOfYears runde (fara runda 0) */
+    public static void execute(final Input input, final Output output,
+                               final Map<Integer, List<Double>> niceScoreHistoryMap) {
 
         for (int i = 0; i < input.getNumberOfYears(); i++) {
-            increaseAge(input);
-            checkForYoungAdults(input);
-
-            input.setSantaBudget(input.getAnnualChanges().get(i).getNewSantaBudget());
-
+            RoundUpdates.increaseAge(input);
+            RoundUpdates.checkForYoungAdults(input);
+            RoundUpdates.updateSantaBudget(input, i);
             for (ChildUpdate childUpdate : input.getAnnualChanges().get(i).getChildrenUpdates()) {
                 for (Child child : input.getInitialData().getChildren()) {
-                    if (childUpdate.getId() == child.getId()) {
-                        if (childUpdate.getNiceScore() != null) {
-                            List<Double> niceScoreHistory = niceScoreHistoryMap.get(child.getId());
-                            niceScoreHistory.add(childUpdate.getNiceScore());
-                            niceScoreHistoryMap.put(child.getId(), niceScoreHistory);
-                        }
-
-                        if (!childUpdate.getGiftsPreferences().isEmpty()) {
-                            for (String preference : child.getGiftsPreferences()) {
-                                if (!childUpdate.getGiftsPreferences().contains(preference))
-                                    childUpdate.getGiftsPreferences().add(preference);
-                            }
-                            List<String> giftsPreferencesWithNoDuplicates = childUpdate.getGiftsPreferences().stream().distinct()
-                                            .collect(Collectors.toList());
-                            child.setGiftsPreferences(giftsPreferencesWithNoDuplicates);
-
-                        }
-                        break;
-                    }
+                   int updatedChild = UpdateChild.execute(childUpdate, child, niceScoreHistoryMap);
+                   if (updatedChild == 1) {
+                       break;
+                   }
                 }
             }
-
-            for (Child child : input.getAnnualChanges().get(i).getNewChildren()) {
-                input.getInitialData().getChildren().add(child);
-                List<Double> niceScoreHistory = new ArrayList<>();
-                niceScoreHistory.add(child.getNiceScore());
-                niceScoreHistoryMap.put(child.getId(), niceScoreHistory);
-            }
-            checkForYoungAdults(input);
-
-            for (Gift gift : input.getAnnualChanges().get(i).getNewGifts()) {
-                input.getInitialData().getSantaGiftsList().add(gift);
-            }
+            RoundUpdates.addNewChildren(input, i, niceScoreHistoryMap);
+            RoundUpdates.checkForYoungAdults(input);
+            RoundUpdates.addNewGifts(input, i);
 
             ChildOutputList childOutputList = new ChildOutputList();
             for (Child child : input.getInitialData().getChildren()) {
-                double allocatedBudget = BudgetCalculator.determineBudgetBasedOnAge(child, niceScoreHistoryMap, input);
+                double allocatedBudget = BudgetCalculator.determineBudgetBasedOnAge(child,
+                        niceScoreHistoryMap, input);
 
                 List<Gift> receivedGifts = new ArrayList<>();
 
                 ChosenGift.searchChosenGift(child, input, receivedGifts, allocatedBudget);
-                double averageScore = BudgetCalculator.determineAverageScore(child, niceScoreHistoryMap);
+                double averageScore = BudgetCalculator.determineAverageScore(child,
+                        niceScoreHistoryMap);
                 List<Double> niceScoreHistory = niceScoreHistoryMap.get(child.getId());
-                ChildOutput childOutput = new ChildOutput(child, averageScore, niceScoreHistory, allocatedBudget, receivedGifts);
+                ChildOutput childOutput = new ChildOutput(child, averageScore, niceScoreHistory,
+                        allocatedBudget, receivedGifts);
                 childOutputList.getChildren().add(childOutput);
             }
             output.getAnnualChildren().add(childOutputList);

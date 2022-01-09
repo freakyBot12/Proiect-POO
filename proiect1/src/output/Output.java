@@ -1,27 +1,27 @@
 package output;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class Output {
-    private List<ChildOutputList> annualChildren = new ArrayList<>();
-
-    public Output() {
-
+public final class Output {
+    private List<ChildOutputList> annualChildren;
+    private static Output instance = null;
+    private Output() {
+        annualChildren = new ArrayList<>();
     }
-
-    public Output(List<ChildOutputList> annualChildren) {
-        this.annualChildren = annualChildren;
+    /** clasa Output este de tip Singleton */
+    public static Output getInstance() {
+        if (instance == null) {
+            instance = new Output();
+        }
+        return instance;
     }
 
     public List<ChildOutputList> getAnnualChildren() {
         return annualChildren;
     }
 
-    public void setAnnualChildren(List<ChildOutputList> annualChildren) {
+    public void setAnnualChildren(final List<ChildOutputList> annualChildren) {
         this.annualChildren = annualChildren;
     }
 }

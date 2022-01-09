@@ -6,9 +6,16 @@ import input.Input;
 
 import java.util.List;
 
-public class ChosenGift {
+public final class ChosenGift {
+    private ChosenGift() {
 
-    public static void searchChosenGift(Child child, Input input, List<Gift> receivedGifts, double allocatedBudget) {
+    }
+    /** functia care determina ce cadouri ii va asigna Mos Craciun copilului */
+    public static void searchChosenGift(final Child child,
+                                        final Input input,
+                                        final List<Gift> receivedGifts,
+                                        final double allocatedBudget) {
+        double allocatedBudgetCopy = allocatedBudget;
         for (String preference : child.getGiftsPreferences()) {
             double minGiftPrice = Double.MAX_VALUE;
             Gift chosenGift = new Gift();
@@ -20,9 +27,9 @@ public class ChosenGift {
                     }
                 }
             }
-            if (allocatedBudget - minGiftPrice >= 0) {
+            if (allocatedBudgetCopy - minGiftPrice >= 0) {
                 receivedGifts.add(chosenGift);
-                allocatedBudget -= minGiftPrice;
+                allocatedBudgetCopy -= minGiftPrice;
             }
         }
     }

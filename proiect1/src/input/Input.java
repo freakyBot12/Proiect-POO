@@ -1,34 +1,22 @@
 package input;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import java.util.ArrayList;
 import java.util.List;
 
-public class Input {
+public final class Input {
 
     private int numberOfYears;
     private double santaBudget;
     private InitialData initialData;
     private List<AnnualChange> annualChanges;
+    private Input() {
 
-    public Input() {
-        initialData = new InitialData();
-        annualChanges = new ArrayList<>();
-    }
-
-    public Input(int numberOfYears, double santaBudget, InitialData initialData, List<AnnualChange> annualChanges) {
-        this.numberOfYears = numberOfYears;
-        this.santaBudget = santaBudget;
-        this.initialData = initialData;
-        this.annualChanges = annualChanges;
     }
 
     public int getNumberOfYears() {
         return numberOfYears;
     }
 
-    public void setNumberOfYears(int numberOfYears) {
+    public void setNumberOfYears(final int numberOfYears) {
         this.numberOfYears = numberOfYears;
     }
 
@@ -36,7 +24,7 @@ public class Input {
         return santaBudget;
     }
 
-    public void setSantaBudget(double santaBudget) {
+    public void setSantaBudget(final double santaBudget) {
         this.santaBudget = santaBudget;
     }
 
@@ -44,7 +32,7 @@ public class Input {
         return initialData;
     }
 
-    public void setInitialData(InitialData initialData) {
+    public void setInitialData(final InitialData initialData) {
         this.initialData = initialData;
     }
 
@@ -52,7 +40,7 @@ public class Input {
         return annualChanges;
     }
 
-    public void setAnnualChanges(List<AnnualChange> annualChanges) {
+    public void setAnnualChanges(final List<AnnualChange> annualChanges) {
         this.annualChanges = annualChanges;
     }
 }

@@ -3,14 +3,13 @@ package output;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChildOutputList {
-    private List<ChildOutput> children = new ArrayList<>();
+public final class ChildOutputList {
+    private List<ChildOutput> children;
 
     public ChildOutputList() {
-
+        children = new ArrayList<>();
     }
-
-    public ChildOutputList(List<ChildOutput> children) {
+    public ChildOutputList(final List<ChildOutput> children) {
         this.children = children;
     }
 
@@ -18,7 +17,7 @@ public class ChildOutputList {
         return children;
     }
 
-    public void setChildren(List<ChildOutput> children) {
+    public void setChildren(final List<ChildOutput> children) {
         this.children = children;
     }
 }

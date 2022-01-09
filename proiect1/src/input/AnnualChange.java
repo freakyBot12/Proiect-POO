@@ -2,7 +2,7 @@ package input;
 
 import java.util.List;
 
-public class AnnualChange {
+public final class AnnualChange {
 
     private double newSantaBudget;
     private List<Gift> newGifts;
@@ -13,7 +13,8 @@ public class AnnualChange {
 
     }
 
-    public AnnualChange(double newSantaBudget, List<Gift> newGifts, List<Child> newChildren, List<ChildUpdate> childrenUpdates) {
+    public AnnualChange(final double newSantaBudget, final List<Gift> newGifts,
+                        final List<Child> newChildren, final List<ChildUpdate> childrenUpdates) {
         this.newSantaBudget = newSantaBudget;
         this.newGifts = newGifts;
         this.newChildren = newChildren;
@@ -24,7 +25,7 @@ public class AnnualChange {
         return newSantaBudget;
     }
 
-    public void setNewSantaBudget(double newSantaBudget) {
+    public void setNewSantaBudget(final double newSantaBudget) {
         this.newSantaBudget = newSantaBudget;
     }
 
@@ -32,7 +33,7 @@ public class AnnualChange {
         return newGifts;
     }
 
-    public void setNewGifts(List<Gift> newGifts) {
+    public void setNewGifts(final List<Gift> newGifts) {
         this.newGifts = newGifts;
     }
 
@@ -40,7 +41,7 @@ public class AnnualChange {
         return newChildren;
     }
 
-    public void setNewChildren(List<Child> newChildren) {
+    public void setNewChildren(final List<Child> newChildren) {
         this.newChildren = newChildren;
     }
 
@@ -48,7 +49,7 @@ public class AnnualChange {
         return childrenUpdates;
     }
 
-    public void setChildrenUpdates(List<ChildUpdate> childrenUpdates) {
+    public void setChildrenUpdates(final List<ChildUpdate> childrenUpdates) {
         this.childrenUpdates = childrenUpdates;
     }
 }

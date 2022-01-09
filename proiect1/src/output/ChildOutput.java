@@ -1,15 +1,11 @@
 package output;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import enums.Cities;
 import input.Child;
 import input.Gift;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-public class ChildOutput {
+public final class ChildOutput {
 
     private int id;
     private String lastName;
@@ -22,30 +18,31 @@ public class ChildOutput {
     private double assignedBudget;
     private List<Gift> receivedGifts;
 
-    public ChildOutput() {
-
-    }
-
-    public ChildOutput (Child child, double assignedBudget, List<Gift> receivedGifts) {
+    public ChildOutput(final Child child) {
         this.id = child.getId();
         this.lastName = child.getLastName();
         this.firstName = child.getFirstName();
         this.city = child.getCity();
         this.age = child.getAge();
         this.giftsPreferences = child.getGiftsPreferences();
+    }
+
+    public ChildOutput(final Child child,
+                        final double assignedBudget,
+                        final List<Gift> receivedGifts) {
+        this(child);
         this.averageScore = child.getNiceScore();
         this.niceScoreHistory = List.of(child.getNiceScore());
         this.assignedBudget = assignedBudget;
         this.receivedGifts = receivedGifts;
     }
 
-    public ChildOutput(Child child, double averageScore, List<Double> niceScoreHistory, double assignedBudget, List<Gift> receivedGifts) {
-        this.id = child.getId();
-        this.lastName = child.getLastName();
-        this.firstName = child.getFirstName();
-        this.city = child.getCity();
-        this.age = child.getAge();
-        this.giftsPreferences = child.getGiftsPreferences();
+    public ChildOutput(final Child child,
+                       final double averageScore,
+                       final List<Double> niceScoreHistory,
+                       final double assignedBudget,
+                       final List<Gift> receivedGifts) {
+        this(child);
         this.averageScore = averageScore;
         this.niceScoreHistory = new ArrayList<>(niceScoreHistory);
         this.assignedBudget = assignedBudget;
@@ -56,7 +53,7 @@ public class ChildOutput {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(final int id) {
         this.id = id;
     }
 
@@ -64,7 +61,7 @@ public class ChildOutput {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(final String lastName) {
         this.lastName = lastName;
     }
 
@@ -72,7 +69,7 @@ public class ChildOutput {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(final String firstName) {
         this.firstName = firstName;
     }
 
@@ -80,7 +77,7 @@ public class ChildOutput {
         return city;
     }
 
-    public void setCity(String city) {
+    public void setCity(final String city) {
         this.city = city;
     }
 
@@ -88,7 +85,7 @@ public class ChildOutput {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(final int age) {
         this.age = age;
     }
 
@@ -96,7 +93,7 @@ public class ChildOutput {
         return giftsPreferences;
     }
 
-    public void setGiftsPreferences(List<String> giftsPreferences) {
+    public void setGiftsPreferences(final List<String> giftsPreferences) {
         this.giftsPreferences = giftsPreferences;
     }
 
@@ -104,7 +101,7 @@ public class ChildOutput {
         return averageScore;
     }
 
-    public void setAverageScore(double averageScore) {
+    public void setAverageScore(final double averageScore) {
         this.averageScore = averageScore;
     }
 
@@ -112,7 +109,7 @@ public class ChildOutput {
         return niceScoreHistory;
     }
 
-    public void setNiceScoreHistory(List<Double> niceScoreHistory) {
+    public void setNiceScoreHistory(final List<Double> niceScoreHistory) {
         this.niceScoreHistory = niceScoreHistory;
     }
 
@@ -120,7 +117,7 @@ public class ChildOutput {
         return assignedBudget;
     }
 
-    public void setAssignedBudget(double assignedBudget) {
+    public void setAssignedBudget(final double assignedBudget) {
         this.assignedBudget = assignedBudget;
     }
 
@@ -128,7 +125,7 @@ public class ChildOutput {
         return receivedGifts;
     }
 
-    public void setReceivedGifts(List<Gift> receivedGifts) {
+    public void setReceivedGifts(final List<Gift> receivedGifts) {
         this.receivedGifts = receivedGifts;
     }
 }

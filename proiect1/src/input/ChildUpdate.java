@@ -3,7 +3,7 @@ package input;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChildUpdate {
+public final class ChildUpdate {
 
     private int id;
     private Double niceScore;
@@ -13,7 +13,8 @@ public class ChildUpdate {
         giftsPreferences = new ArrayList<>();
     }
 
-    public ChildUpdate(int id, Double newNiceScore, List<String> giftsPreferences) {
+    public ChildUpdate(final int id, final Double newNiceScore,
+                       final List<String> giftsPreferences) {
         this.id = id;
         this.niceScore = newNiceScore;
         this.giftsPreferences = giftsPreferences;
@@ -23,7 +24,7 @@ public class ChildUpdate {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(final int id) {
         this.id = id;
     }
 
@@ -31,7 +32,7 @@ public class ChildUpdate {
         return niceScore;
     }
 
-    public void setNiceScore(Double niceScore) {
+    public void setNiceScore(final Double niceScore) {
         this.niceScore = niceScore;
     }
 
@@ -39,7 +40,7 @@ public class ChildUpdate {
         return giftsPreferences;
     }
 
-    public void setGiftsPreferences(List<String> giftsPreferences) {
+    public void setGiftsPreferences(final List<String> giftsPreferences) {
         this.giftsPreferences = giftsPreferences;
     }
 }

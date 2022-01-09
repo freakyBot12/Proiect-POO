@@ -3,7 +3,7 @@ package input;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InitialData {
+public final class InitialData {
 
     private List<Child> children;
     private List<Gift> santaGiftsList;
@@ -13,7 +13,7 @@ public class InitialData {
         santaGiftsList = new ArrayList<>();
     }
 
-    public InitialData(List<Child> children, List<Gift> santaGiftsList) {
+    public InitialData(final List<Child> children, final List<Gift> santaGiftsList) {
         this.children = children;
         this.santaGiftsList = santaGiftsList;
     }
@@ -22,7 +22,7 @@ public class InitialData {
         return children;
     }
 
-    public void setChildren(List<Child> children) {
+    public void setChildren(final List<Child> children) {
         this.children = children;
     }
 
@@ -30,7 +30,7 @@ public class InitialData {
         return santaGiftsList;
     }
 
-    public void setSantaGiftsList(List<Gift> santaGiftsList) {
+    public void setSantaGiftsList(final List<Gift> santaGiftsList) {
         this.santaGiftsList = santaGiftsList;
     }
 }
