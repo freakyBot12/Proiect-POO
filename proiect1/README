@@ -19,7 +19,8 @@ ChildOutput:
 	- al doilea constructor este folosit in runda 0, in care nu avem nevoie sa retinem
 	  scorurile de cumintenie ale copiilor in Hashmap, si in care averageScore-ul este
 	  identic cu scorul de cumintenie initial (mai putin in cazul copiilor din categoria
-	  Baby, unde averageScore-ul este 10 oricare ar fi scorul de cumintenie initial
+	  Baby, unde averageScore-ul este 10 oricare ar fi scorul de cumintenie initial)
+	- al treilea constructor este folosit in celelalte runde
 
 GiveGifts:
 	- aceasta clasa initiaza simularea rundei 0 si a celorlalte numberOfYears runde.
@@ -37,7 +38,8 @@ Round0:
 	- se aloca un buget pentru fiecare copil
 	- se adauga cadouri, in functie de buget si preferintele copilului, in lista de cadouri
 	  primite
-	- se adauga copiii in lista precizata la inceputul descrierii clasei Round0
+	- se adauga copiii (impreuna cu averageScore, lista de cumintenie si lista de cadouri primite)
+	  in lista precizata la inceputul descrierii clasei Round0
 	- aceasta lista se adauga in Output
 
 NextRounds: 
@@ -67,5 +69,5 @@ BudgetCalculator:
 
 pachetul strategy:
 	- contine implementarea design pattern-ului Strategy, folosit pentru calcularea
-	  averageScore-ului pentru fiecare copil
+	  averageScore-ului fiecarui copil
 
