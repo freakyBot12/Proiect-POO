@@ -13,7 +13,8 @@ public final class ChildUpdate {
         giftsPreferences = new ArrayList<>();
     }
 
-    public ChildUpdate(final int id, final Double newNiceScore,
+    public ChildUpdate(final int id,
+                       final Double newNiceScore,
                        final List<String> giftsPreferences) {
         this.id = id;
         this.niceScore = newNiceScore;

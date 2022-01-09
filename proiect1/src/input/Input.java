@@ -8,6 +8,7 @@ public final class Input {
     private double santaBudget;
     private InitialData initialData;
     private List<AnnualChange> annualChanges;
+
     private Input() {
 
     }

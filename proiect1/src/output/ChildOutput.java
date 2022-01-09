@@ -2,6 +2,7 @@ package output;
 
 import input.Child;
 import input.Gift;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,8 +29,8 @@ public final class ChildOutput {
     }
 
     public ChildOutput(final Child child,
-                        final double assignedBudget,
-                        final List<Gift> receivedGifts) {
+                       final double assignedBudget,
+                       final List<Gift> receivedGifts) {
         this(child);
         this.averageScore = child.getNiceScore();
         this.niceScoreHistory = List.of(child.getNiceScore());

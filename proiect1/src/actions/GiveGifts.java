@@ -13,10 +13,13 @@ public final class GiveGifts {
     private GiveGifts() {
 
     }
-    /** simularea propriu-zisa a primei runde si a celorlalte numberOfYears runde.
-        Dupa runda 0, este creat un Hashmap care contine toti copiii din lista
-        Mosului si toate scorurile de cumintenie acordate acestora in numberOfYears + 1
-        ani */
+
+    /**
+     * simularea propriu-zisa a primei runde si a celorlalte numberOfYears runde.
+     * Dupa runda 0, este creat un Hashmap care contine toti copiii din lista
+     * Mosului si toate scorurile de cumintenie acordate acestora in numberOfYears + 1
+     * ani
+     */
     public static void execute(final Input input, final Output output) {
         Round0.execute(input, output);
         Map<Integer, List<Double>> niceScoreHistoryMap = new LinkedHashMap<>();

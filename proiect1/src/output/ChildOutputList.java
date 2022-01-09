@@ -9,6 +9,7 @@ public final class ChildOutputList {
     public ChildOutputList() {
         children = new ArrayList<>();
     }
+
     public ChildOutputList(final List<ChildOutput> children) {
         this.children = children;
     }

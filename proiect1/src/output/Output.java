@@ -6,10 +6,14 @@ import java.util.List;
 public final class Output {
     private List<ChildOutputList> annualChildren;
     private static Output instance = null;
+
     private Output() {
         annualChildren = new ArrayList<>();
     }
-    /** clasa Output este de tip Singleton */
+
+    /**
+     * clasa Output este de tip Singleton
+     */
     public static Output getInstance() {
         if (instance == null) {
             instance = new Output();

@@ -10,7 +10,10 @@ public final class ChosenGift {
     private ChosenGift() {
 
     }
-    /** functia care determina ce cadouri ii va asigna Mos Craciun copilului */
+
+    /**
+     * functia care determina ce cadouri ii va asigna Mos Craciun copilului
+     */
     public static void searchChosenGift(final Child child,
                                         final Input input,
                                         final List<Gift> receivedGifts,

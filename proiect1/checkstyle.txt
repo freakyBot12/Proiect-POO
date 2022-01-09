@@ -1,2 +1,6 @@
 Starting audit...
+[ERROR] D:\Proiect-POO-2022\Proiect-POO\proiect1\.\src\actions\BudgetCalculator.java:47: Line is longer than 100 characters (found 104). [LineLength]
+[ERROR] D:\Proiect-POO-2022\Proiect-POO\proiect1\.\src\actions\BudgetCalculator.java:93: Line is longer than 100 characters (found 102). [LineLength]
+[ERROR] D:\Proiect-POO-2022\Proiect-POO\proiect1\.\src\actions\UpdateChild.java:21: Line is longer than 100 characters (found 101). [LineLength]
 Audit done.
+Checkstyle ends with 3 errors.

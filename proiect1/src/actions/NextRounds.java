@@ -16,7 +16,10 @@ public final class NextRounds {
     private NextRounds() {
 
     }
-    /** simularea celor numberOfYears runde (fara runda 0) */
+
+    /**
+     * simularea celor numberOfYears runde (fara runda 0)
+     */
     public static void execute(final Input input, final Output output,
                                final Map<Integer, List<Double>> niceScoreHistoryMap) {
 
@@ -26,10 +29,10 @@ public final class NextRounds {
             RoundUpdates.updateSantaBudget(input, i);
             for (ChildUpdate childUpdate : input.getAnnualChanges().get(i).getChildrenUpdates()) {
                 for (Child child : input.getInitialData().getChildren()) {
-                   int updatedChild = UpdateChild.execute(childUpdate, child, niceScoreHistoryMap);
-                   if (updatedChild == 1) {
-                       break;
-                   }
+                    int updatedChild = UpdateChild.execute(childUpdate, child, niceScoreHistoryMap);
+                    if (updatedChild == 1) {
+                        break;
+                    }
                 }
             }
             RoundUpdates.addNewChildren(input, i, niceScoreHistoryMap);

@@ -10,7 +10,6 @@ public final class Constants {
     public static final Integer MAXIMUM_ERROR_CHECKSTYLE = 30;
     public static final Integer CHECKSTYLE_POINTS = 10;
     public static final Integer TESTS_NUMBER_SMALL = 15;
-
     public static final int BABY_MAX_AGE = 5;
     public static final double AVERAGE_SCORE_FOR_BABY = 10;
     public static final int KID_MAX_AGE = 12;

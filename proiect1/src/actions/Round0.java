@@ -15,7 +15,10 @@ public final class Round0 {
     private Round0() {
 
     }
-    /** simularea primei runde */
+
+    /**
+     * simularea primei runde
+     */
     public static void execute(final Input input, final Output output) {
         ChildOutputList childOutputList = new ChildOutputList();
         input.getInitialData().getChildren().removeIf(child ->

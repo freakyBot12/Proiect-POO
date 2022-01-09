@@ -16,7 +16,10 @@ public final class BudgetCalculator {
     private BudgetCalculator() {
 
     }
-    /** functie care calculeaza bugetul alocat unui copil in prima runda */
+
+    /**
+     * functie care calculeaza bugetul alocat unui copil in prima runda
+     */
     public static double round0(final Child child, final Input input) {
         double sumOfNiceScores = 0;
         for (Child child1 : input.getInitialData().getChildren()) {
@@ -35,11 +38,13 @@ public final class BudgetCalculator {
         }
     }
 
-    /** functie care determina bugetul in functie de varsta copilului
-        (folosita pentru toate rundele in afara de runda 0*/
+    /**
+     * functie care determina bugetul in functie de varsta copilului
+     * (folosita pentru toate rundele in afara de runda 0
+     */
 
     public static double determineBudgetBasedOnAge(final Child child,
-                           final Map<Integer, List<Double>> niceScoreHistoryMap,
+                                                   final Map<Integer, List<Double>> niceScoreHistoryMap,
                                                    final Input input) {
 
         double sumOfAllAverageScores = 0;
@@ -80,9 +85,12 @@ public final class BudgetCalculator {
         }
 
     }
-    /** functie care determina averageScore-ul unui copil */
+
+    /**
+     * functie care determina averageScore-ul unui copil
+     */
     public static double determineAverageScore(final Child child,
-                              final Map<Integer, List<Double>> niceScoreHistoryMap) {
+                                               final Map<Integer, List<Double>> niceScoreHistoryMap) {
         if (child.getAge() < Constants.BABY_MAX_AGE) {
             AverageNiceScoreStrategy strategy = new BabyAverageNiceScoreStrategy();
             return strategy.execute(child, niceScoreHistoryMap);
